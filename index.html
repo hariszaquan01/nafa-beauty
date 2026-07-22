@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAFA BEAUTY | Couture Click Pen Foundation</title>
+    <!-- Google Fonts: Bodoni Moda & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --dior-black: #111111;
+            --dior-gold: #c5a059;
+            --dior-nude: #f7ede8;
+            --dior-rose: #e8cfc4;
+            --dior-grey: #f9f9f9;
+            --text-muted: #666666;
+            --border-light: #e5e5e5;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            color: var(--dior-black);
+            line-height: 1.7;
+            letter-spacing: 0.5px;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Bodoni Moda', serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* LOGO STYLES */
+        .brand-logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .hero-logo-img {
+            height: 160px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .footer-logo-img {
+            height: 90px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 50%;
+            margin: 0 auto 15px auto;
+            display: block;
+        }
+
+        /* TOP NAVIGATION BAR (STANDARD / BIASA) */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dior-black);
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--dior-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--dior-gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(180deg, var(--dior-nude) 0%, var(--white) 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero-banner-img {
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+
+        /* GENERAL SECTION HEADINGS */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* INFOGRAPHIC IMAGES SHOWCASE */
+        .infographic-banner {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        /* PRODUCT / SHADES SECTION */
+        .shades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .shade-card {
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .shade-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .shade-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* CONTACT FORM */
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 1px solid var(--border-light);
+            padding: 60px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: var(--dior-black);
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 15px 0;
+            border: none;
+            border-bottom: 1px solid var(--border-light);
+            font-family: inherit;
+            font-size: 0.9rem;
+            background: transparent;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-bottom-color: var(--dior-black);
+        }
+
+        .dior-btn {
+            display: block;
+            width: 100%;
+            background: var(--dior-black);
+            color: var(--white);
+            border: 1px solid var(--dior-black);
+            padding: 18px 0;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .dior-btn:hover {
+            background: #25D366;
+            color: var(--white);
+            border-color: #25D366;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dior-black);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 0;
+            margin-top: 80px;
+        }
+
+        .footer-sub {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--dior-gold);
+            margin-bottom: 30px;
+        }
+
+        .footer-copy {
+            font-size: 0.7rem;
+            color: #777;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .nav-links a { font-size: 0.7rem; }
+            .contact-container { padding: 30px 20px; }
+            .hero-logo-img { height: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION BAR (STANDARD MENU ATAS) -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#about">
+                <img src="logo.jpeg" alt="NAFA BEAUTY Logo" class="brand-logo-img">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#about">Utama</a></li>
+                <li><a href="#steps">Cara Penggunaan</a></li>
+                <li><a href="#benefits">Kelebihan</a></li>
+                <li><a href="#product">Tona Warna</a></li>
+                <li><a href="#contact">Beli Sekarang</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero" id="about">
+        <div class="container">
+            <img src="logo.jpeg" alt="NAFA BEAUTY Logo" class="hero-logo-img">
+            <img src="hero-banner.jpeg" alt="NAFA BEAUTY Click Pen Foundation Banner" class="hero-banner-img">
+        </div>
+    </header>
+
+    <main>
+
+        <!-- STEPS TO USE SECTION -->
+        <section id="steps" class="container">
+            <div class="section-header">
+                <h2>Cara Penggunaan</h2>
+                <p>Langkah Mudah Untuk Flawless Glow</p>
+            </div>
+            <img src="steps.jpeg" alt="Langkah Penggunaan NAFA BEAUTY Click Pen Foundation" class="infographic-banner">
+        </section>
+
+        <!-- BENEFITS SECTION -->
+        <section id="benefits" style="background: var(--dior-grey);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Kelebihan Produk</h2>
+                    <p>Kenapa Pilih Click Pen Foundation?</p>
+                </div>
+                <img src="benefits.jpeg" alt="Kelebihan NAFA BEAUTY Click Pen Foundation" class="infographic-banner">
+            </div>
+        </section>
+
+        <!-- PRODUCT SHADES SECTION -->
+        <section id="product" class="container">
+            <div class="section-header">
+                <h2>Tona Warna Foundation</h2>
+                <p>Shades Collection for Every Complexion</p>
+            </div>
+
+            <img src="shades-header.jpeg" alt="Carta Tona Warna NAFA BEAUTY" class="infographic-banner">
+
+            <div class="shades-grid">
+                <div class="shade-card">
+                    <img src="shade-vanilla-silk.jpeg" alt="Vanilla Silk Shade">
+                </div>
+
+                <div class="shade-card">
+                    <img src="shade-champagne-glow.jpeg" alt="Champagne Glow Shade">
+                </div>
+
+                <div class="shade-card">
+                    <img src="shade-golden-sand.jpeg" alt="Golden Sand Shade">
+                </div>
+
+                <div class="shade-card">
+                    <img src="shade-cinnamon-latte.jpeg" alt="Cinnamon Latte Shade">
+                </div>
+
+                <div class="shade-card">
+                    <img src="shade-toffee-bronze.jpeg" alt="Toffee Bronze Shade">
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT / WHATSAPP SECTION -->
+        <section id="contact" style="background: var(--dior-grey);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Beli / Hubungi Kami</h2>
+                    <p>Order Your Custom Shade</p>
+                </div>
+
+                <img src="purchase-header.jpeg" alt="Cara Pembelian NAFA BEAUTY" class="infographic-banner" style="max-width: 700px; margin: 0 auto 40px auto;">
+
+                <div class="contact-container">
+                    <form id="whatsapp-form" onsubmit="sendToWhatsApp(event)">
+                        <div class="form-group">
+                            <label for="name">Nama Penuh</label>
+                            <input type="text" id="name" required placeholder="NAMA ANDA">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Nombor Telefon</label>
+                            <input type="tel" id="phone" required placeholder="012 345 6789">
+                        </div>
+                        <div class="form-group">
+                            <label for="shade">Pilihan Shade</label>
+                            <select id="shade" required>
+                                <option value="">SILA PILIH TONA WARNA</option>
+                                <option value="Vanilla Silk">Vanilla Silk (Light Neutral)</option>
+                                <option value="Champagne Glow">Champagne Glow (Light Medium Warm)</option>
+                                <option value="Golden Sand">Golden Sand (Medium Golden)</option>
+                                <option value="Cinnamon Latte">Cinnamon Latte (Tan Warm)</option>
+                                <option value="Toffee Bronze">Toffee Bronze (Deep Neutral)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Alamat Penghantaran / Mesej</label>
+                            <textarea id="message" rows="3" required placeholder="MASUKKAN ALAMAT LENGKAP PENGHANTARAN"></textarea>
+                        </div>
+                        <button type="submit" class="dior-btn">Hantar Pesanan Ke WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <img src="logo.jpeg" alt="NAFA BEAUTY Logo" class="footer-logo-img">
+            <div class="footer-sub">Be Confident. Be You. ♡</div>
+            <div class="footer-copy">&copy; 2026 NAFA BEAUTY. ALL RIGHTS RESERVED.</div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+
+        
+            const phoneNumber = "60199644619"; 
+
+            const name = document.getElementById('name').value;
+            const userPhone = document.getElementById('phone').value;
+            const shade = document.getElementById('shade').value;
+            const address = document.getElementById('message').value;
+
+            const textMessage = `Salam / Hi NAFA BEAUTY,%0A%0ASaya ingin membuat pesanan Click Pen Foundation:%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*No. Telefon:* ${encodeURIComponent(userPhone)}%0A*Pilihan Shade:* ${encodeURIComponent(shade)}%0A*Alamat Penghantaran:* ${encodeURIComponent(address)}%0A%0ATerima kasih!`;
+
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${textMessage}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+
+</body>
+</html>
