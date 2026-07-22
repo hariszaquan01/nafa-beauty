@@ -232,7 +232,7 @@
         }
 
         .active-shade-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--dior-black);
             font-weight: 600;
             margin-bottom: 15px;
@@ -241,39 +241,55 @@
         .shade-selector-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             margin: 20px 0;
         }
 
-        .shade-option-label {
+        .shade-item-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px 18px;
+            padding: 10px 15px;
             border: 1px solid var(--border-light);
             border-radius: 6px;
             background: var(--white);
-            cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 0.85rem;
         }
 
-        .shade-option-label:hover {
+        .shade-item-row:hover {
             border-color: var(--dior-black);
             background: var(--dior-nude);
         }
 
-        .shade-checkbox-group {
+        .shade-info {
             display: flex;
-            align-items: center;
-            gap: 12px;
+            flex-direction: column;
+            cursor: pointer;
         }
 
-        .shade-checkbox-group input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--dior-black);
+        .shade-info .title {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .shade-info .sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .qty-select {
+            padding: 6px 10px;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            outline: none;
+            background: var(--white);
             cursor: pointer;
+        }
+
+        .qty-select:focus {
+            border-color: var(--dior-black);
         }
 
         .btn-buy-shade {
@@ -355,33 +371,16 @@
             border-bottom-color: var(--dior-black);
         }
 
-        .form-checkbox-list {
+        .form-qty-list {
             display: flex;
             flex-direction: column;
             gap: 10px;
             margin-top: 10px;
         }
 
-        .form-checkbox-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 15px;
-            border: 1px solid var(--border-light);
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.85rem;
-        }
-
-        .form-checkbox-item input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--dior-black);
-        }
-
         .total-price-box {
             background: var(--dior-nude);
-            padding: 15px;
+            padding: 18px;
             border-radius: 6px;
             margin-top: 20px;
             text-align: right;
@@ -509,7 +508,7 @@
         <section id="tona-warna" class="container">
             <div class="section-header">
                 <h2>Pilihan Tona Warna</h2>
-                <p>Pilih Mana-Mana Tona Yang Anda Sukai</p>
+                <p>Pilih Kuantiti Tona Yang Anda Mahukan</p>
             </div>
 
             <img src="shades-header.jpeg" alt="Carta Tona Warna NAFA BEAUTY" class="infographic-banner">
@@ -523,50 +522,110 @@
                 <div class="product-details">
                     <h3>Click Pen Foundation</h3>
                     <div class="price-tag">RM39.90 <small style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">(Setiap Satu)</small></div>
-                    <div class="active-shade-title" id="active-shade-name">Pilih Tona (Boleh Pilih Lebih Dari Satu):</div>
+                    <div class="active-shade-title" id="active-shade-name">Pilih Kuantiti Setiap Tona (cth: 10 unit):</div>
 
-                    <!-- SENARAI PILIHAN BANYAK PRODUK -->
+                    <!-- SENARAI PILIHAN KUANTITI SETIAP SHADE -->
                     <div class="shade-selector-list">
                         
-                        <label class="shade-option-label" onclick="previewShade('shade-vanilla-silk.jpeg', 'Vanilla Silk (Light Neutral)')">
-                            <div class="shade-checkbox-group">
-                                <input type="checkbox" value="Vanilla Silk" class="shade-showcase-cb" onchange="syncWithForm()">
-                                <span>1. Vanilla Silk</span>
+                        <div class="shade-item-row">
+                            <div class="shade-info" onclick="previewShade('shade-vanilla-silk.jpeg', 'Vanilla Silk (Light Neutral)')">
+                                <span class="title">1. Vanilla Silk</span>
+                                <span class="sub">Light Neutral</span>
                             </div>
-                            <small>Light Neutral</small>
-                        </label>
+                            <select class="qty-select shade-sc-qty" data-shade="Vanilla Silk" onchange="syncWithForm('Vanilla Silk', this.value)">
+                                <option value="0">0 Unit</option>
+                                <option value="1">1 Unit</option>
+                                <option value="2">2 Unit</option>
+                                <option value="3">3 Unit</option>
+                                <option value="4">4 Unit</option>
+                                <option value="5">5 Unit</option>
+                                <option value="6">6 Unit</option>
+                                <option value="7">7 Unit</option>
+                                <option value="8">8 Unit</option>
+                                <option value="9">9 Unit</option>
+                                <option value="10">10 Unit</option>
+                            </select>
+                        </div>
 
-                        <label class="shade-option-label" onclick="previewShade('shade-champagne-glow.jpeg', 'Champagne Glow (Light Medium Warm)')">
-                            <div class="shade-checkbox-group">
-                                <input type="checkbox" value="Champagne Glow" class="shade-showcase-cb" onchange="syncWithForm()">
-                                <span>2. Champagne Glow</span>
+                        <div class="shade-item-row">
+                            <div class="shade-info" onclick="previewShade('shade-champagne-glow.jpeg', 'Champagne Glow (Light Medium Warm)')">
+                                <span class="title">2. Champagne Glow</span>
+                                <span class="sub">Light Medium Warm</span>
                             </div>
-                            <small>Light Medium Warm</small>
-                        </label>
+                            <select class="qty-select shade-sc-qty" data-shade="Champagne Glow" onchange="syncWithForm('Champagne Glow', this.value)">
+                                <option value="0">0 Unit</option>
+                                <option value="1">1 Unit</option>
+                                <option value="2">2 Unit</option>
+                                <option value="3">3 Unit</option>
+                                <option value="4">4 Unit</option>
+                                <option value="5">5 Unit</option>
+                                <option value="6">6 Unit</option>
+                                <option value="7">7 Unit</option>
+                                <option value="8">8 Unit</option>
+                                <option value="9">9 Unit</option>
+                                <option value="10">10 Unit</option>
+                            </select>
+                        </div>
 
-                        <label class="shade-option-label" onclick="previewShade('shade-golden-sand.jpeg', 'Golden Sand (Medium Golden)')">
-                            <div class="shade-checkbox-group">
-                                <input type="checkbox" value="Golden Sand" class="shade-showcase-cb" onchange="syncWithForm()">
-                                <span>3. Golden Sand</span>
+                        <div class="shade-item-row">
+                            <div class="shade-info" onclick="previewShade('shade-golden-sand.jpeg', 'Golden Sand (Medium Golden)')">
+                                <span class="title">3. Golden Sand</span>
+                                <span class="sub">Medium Golden</span>
                             </div>
-                            <small>Medium Golden</small>
-                        </label>
+                            <select class="qty-select shade-sc-qty" data-shade="Golden Sand" onchange="syncWithForm('Golden Sand', this.value)">
+                                <option value="0">0 Unit</option>
+                                <option value="1">1 Unit</option>
+                                <option value="2">2 Unit</option>
+                                <option value="3">3 Unit</option>
+                                <option value="4">4 Unit</option>
+                                <option value="5">5 Unit</option>
+                                <option value="6">6 Unit</option>
+                                <option value="7">7 Unit</option>
+                                <option value="8">8 Unit</option>
+                                <option value="9">9 Unit</option>
+                                <option value="10">10 Unit</option>
+                            </select>
+                        </div>
 
-                        <label class="shade-option-label" onclick="previewShade('shade-cinnamon-latte.jpeg', 'Cinnamon Latte (Tan Warm)')">
-                            <div class="shade-checkbox-group">
-                                <input type="checkbox" value="Cinnamon Latte" class="shade-showcase-cb" onchange="syncWithForm()">
-                                <span>4. Cinnamon Latte</span>
+                        <div class="shade-item-row">
+                            <div class="shade-info" onclick="previewShade('shade-cinnamon-latte.jpeg', 'Cinnamon Latte (Tan Warm)')">
+                                <span class="title">4. Cinnamon Latte</span>
+                                <span class="sub">Tan Warm</span>
                             </div>
-                            <small>Tan Warm</small>
-                        </label>
+                            <select class="qty-select shade-sc-qty" data-shade="Cinnamon Latte" onchange="syncWithForm('Cinnamon Latte', this.value)">
+                                <option value="0">0 Unit</option>
+                                <option value="1">1 Unit</option>
+                                <option value="2">2 Unit</option>
+                                <option value="3">3 Unit</option>
+                                <option value="4">4 Unit</option>
+                                <option value="5">5 Unit</option>
+                                <option value="6">6 Unit</option>
+                                <option value="7">7 Unit</option>
+                                <option value="8">8 Unit</option>
+                                <option value="9">9 Unit</option>
+                                <option value="10">10 Unit</option>
+                            </select>
+                        </div>
 
-                        <label class="shade-option-label" onclick="previewShade('toffe-bronze-shade.jpeg', 'Toffee Bronze (Deep Neutral)')">
-                            <div class="shade-checkbox-group">
-                                <input type="checkbox" value="Toffee Bronze" class="shade-showcase-cb" onchange="syncWithForm()">
-                                <span>5. Toffee Bronze</span>
+                        <div class="shade-item-row">
+                            <div class="shade-info" onclick="previewShade('toffe-bronze-shade.jpeg', 'Toffee Bronze (Deep Neutral)')">
+                                <span class="title">5. Toffee Bronze</span>
+                                <span class="sub">Deep Neutral</span>
                             </div>
-                            <small>Deep Neutral</small>
-                        </label>
+                            <select class="qty-select shade-sc-qty" data-shade="Toffee Bronze" onchange="syncWithForm('Toffee Bronze', this.value)">
+                                <option value="0">0 Unit</option>
+                                <option value="1">1 Unit</option>
+                                <option value="2">2 Unit</option>
+                                <option value="3">3 Unit</option>
+                                <option value="4">4 Unit</option>
+                                <option value="5">5 Unit</option>
+                                <option value="6">6 Unit</option>
+                                <option value="7">7 Unit</option>
+                                <option value="8">8 Unit</option>
+                                <option value="9">9 Unit</option>
+                                <option value="10">10 Unit</option>
+                            </select>
+                        </div>
 
                     </div>
 
@@ -596,7 +655,7 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Beli / Hubungi Kami</h2>
-                    <p>PILIH TONA WARNA & ISI MAKLUMAT PESANAN</p>
+                    <p>TETAPKAN KUANTITI PRODUK & ISI MAKLUMAT PESANAN</p>
                 </div>
 
                 <img src="purchase-header.jpeg" alt="Cara Pembelian NAFA BEAUTY" class="infographic-banner" style="max-width: 650px; margin: 0 auto 30px auto;">
@@ -614,34 +673,115 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Pilihan Tona Warna (RM39.90 / unit)</label>
-                            <div class="form-checkbox-list">
-                                <label class="form-checkbox-item">
-                                    <span>Vanilla Silk (Light Neutral)</span>
-                                    <input type="checkbox" value="Vanilla Silk" class="form-shade-cb" onchange="syncWithShowcase(); calculateTotal();">
-                                </label>
-                                <label class="form-checkbox-item">
-                                    <span>Champagne Glow (Light Medium Warm)</span>
-                                    <input type="checkbox" value="Champagne Glow" class="form-shade-cb" onchange="syncWithShowcase(); calculateTotal();">
-                                </label>
-                                <label class="form-checkbox-item">
-                                    <span>Golden Sand (Medium Golden)</span>
-                                    <input type="checkbox" value="Golden Sand" class="form-shade-cb" onchange="syncWithShowcase(); calculateTotal();">
-                                </label>
-                                <label class="form-checkbox-item">
-                                    <span>Cinnamon Latte (Tan Warm)</span>
-                                    <input type="checkbox" value="Cinnamon Latte" class="form-shade-cb" onchange="syncWithShowcase(); calculateTotal();">
-                                </label>
-                                <label class="form-checkbox-item">
-                                    <span>Toffee Bronze (Deep Neutral)</span>
-                                    <input type="checkbox" value="Toffee Bronze" class="form-shade-cb" onchange="syncWithShowcase(); calculateTotal();">
-                                </label>
+                            <label>Senarai Kuantiti Produk (RM39.90 / unit)</label>
+                            <div class="form-qty-list">
+                                
+                                <div class="shade-item-row">
+                                    <div class="shade-info">
+                                        <span class="title">Vanilla Silk</span>
+                                        <span class="sub">Light Neutral</span>
+                                    </div>
+                                    <select class="qty-select form-sc-qty" data-shade="Vanilla Silk" onchange="syncWithShowcase('Vanilla Silk', this.value); calculateTotal();">
+                                        <option value="0">0 Unit</option>
+                                        <option value="1">1 Unit</option>
+                                        <option value="2">2 Unit</option>
+                                        <option value="3">3 Unit</option>
+                                        <option value="4">4 Unit</option>
+                                        <option value="5">5 Unit</option>
+                                        <option value="6">6 Unit</option>
+                                        <option value="7">7 Unit</option>
+                                        <option value="8">8 Unit</option>
+                                        <option value="9">9 Unit</option>
+                                        <option value="10">10 Unit</option>
+                                    </select>
+                                </div>
+
+                                <div class="shade-item-row">
+                                    <div class="shade-info">
+                                        <span class="title">Champagne Glow</span>
+                                        <span class="sub">Light Medium Warm</span>
+                                    </div>
+                                    <select class="qty-select form-sc-qty" data-shade="Champagne Glow" onchange="syncWithShowcase('Champagne Glow', this.value); calculateTotal();">
+                                        <option value="0">0 Unit</option>
+                                        <option value="1">1 Unit</option>
+                                        <option value="2">2 Unit</option>
+                                        <option value="3">3 Unit</option>
+                                        <option value="4">4 Unit</option>
+                                        <option value="5">5 Unit</option>
+                                        <option value="6">6 Unit</option>
+                                        <option value="7">7 Unit</option>
+                                        <option value="8">8 Unit</option>
+                                        <option value="9">9 Unit</option>
+                                        <option value="10">10 Unit</option>
+                                    </select>
+                                </div>
+
+                                <div class="shade-item-row">
+                                    <div class="shade-info">
+                                        <span class="title">Golden Sand</span>
+                                        <span class="sub">Medium Golden</span>
+                                    </div>
+                                    <select class="qty-select form-sc-qty" data-shade="Golden Sand" onchange="syncWithShowcase('Golden Sand', this.value); calculateTotal();">
+                                        <option value="0">0 Unit</option>
+                                        <option value="1">1 Unit</option>
+                                        <option value="2">2 Unit</option>
+                                        <option value="3">3 Unit</option>
+                                        <option value="4">4 Unit</option>
+                                        <option value="5">5 Unit</option>
+                                        <option value="6">6 Unit</option>
+                                        <option value="7">7 Unit</option>
+                                        <option value="8">8 Unit</option>
+                                        <option value="9">9 Unit</option>
+                                        <option value="10">10 Unit</option>
+                                    </select>
+                                </div>
+
+                                <div class="shade-item-row">
+                                    <div class="shade-info">
+                                        <span class="title">Cinnamon Latte</span>
+                                        <span class="sub">Tan Warm</span>
+                                    </div>
+                                    <select class="qty-select form-sc-qty" data-shade="Cinnamon Latte" onchange="syncWithShowcase('Cinnamon Latte', this.value); calculateTotal();">
+                                        <option value="0">0 Unit</option>
+                                        <option value="1">1 Unit</option>
+                                        <option value="2">2 Unit</option>
+                                        <option value="3">3 Unit</option>
+                                        <option value="4">4 Unit</option>
+                                        <option value="5">5 Unit</option>
+                                        <option value="6">6 Unit</option>
+                                        <option value="7">7 Unit</option>
+                                        <option value="8">8 Unit</option>
+                                        <option value="9">9 Unit</option>
+                                        <option value="10">10 Unit</option>
+                                    </select>
+                                </div>
+
+                                <div class="shade-item-row">
+                                    <div class="shade-info">
+                                        <span class="title">Toffee Bronze</span>
+                                        <span class="sub">Deep Neutral</span>
+                                    </div>
+                                    <select class="qty-select form-sc-qty" data-shade="Toffee Bronze" onchange="syncWithShowcase('Toffee Bronze', this.value); calculateTotal();">
+                                        <option value="0">0 Unit</option>
+                                        <option value="1">1 Unit</option>
+                                        <option value="2">2 Unit</option>
+                                        <option value="3">3 Unit</option>
+                                        <option value="4">4 Unit</option>
+                                        <option value="5">5 Unit</option>
+                                        <option value="6">6 Unit</option>
+                                        <option value="7">7 Unit</option>
+                                        <option value="8">8 Unit</option>
+                                        <option value="9">9 Unit</option>
+                                        <option value="10">10 Unit</option>
+                                    </select>
+                                </div>
+
                             </div>
                         </div>
 
                         <!-- KOTAK JUMLAH HARGA -->
                         <div class="total-price-box">
-                            Jumlah Unit: <span id="total-qty">0</span><br>
+                            Jumlah Unit: <span id="total-qty">0</span> unit<br>
                             Jumlah Bayaran: <span id="total-price" style="color: var(--dior-gold);">RM 0.00</span>
                         </div>
 
@@ -667,7 +807,7 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT MULTI-SELECT & KIRAN HARGA AUTOMATIK -->
+    <!-- JAVASCRIPT KUANTITI & KIRAAN AUTOMATIK -->
     <script>
         const PRICE_PER_UNIT = 39.90;
         const mainProductPath = "main-product.jpeg";
@@ -706,47 +846,39 @@
                 mainImg.style.opacity = '1';
             }, 150);
 
-            mainTitle.innerText = "Pilih Tona (Boleh Pilih Lebih Dari Satu):";
+            mainTitle.innerText = "Pilih Kuantiti Setiap Tona (cth: 10 unit):";
         }
 
-        // Senkronisasi Checkbox Showcase Ke Form Pesanan
-        function syncWithForm() {
-            const showcaseCBs = document.querySelectorAll('.shade-showcase-cb');
-            const formCBs = document.querySelectorAll('.form-shade-cb');
-
-            showcaseCBs.forEach((scb, index) => {
-                formCBs[index].checked = scb.checked;
-            });
-
+        // Senkronisasi Kuantiti Dari Showcase Ke Form Pesanan
+        function syncWithForm(shadeName, qty) {
+            const formSelect = document.querySelector(`.form-sc-qty[data-shade="${shadeName}"]`);
+            if (formSelect) {
+                formSelect.value = qty;
+            }
             calculateTotal();
         }
 
-        // Senkronisasi Checkbox Form Pesanan Ke Showcase
-        function syncWithShowcase() {
-            const showcaseCBs = document.querySelectorAll('.shade-showcase-cb');
-            const formCBs = document.querySelectorAll('.form-shade-cb');
-
-            formCBs.forEach((fcb, index) => {
-                showcaseCBs[index].checked = fcb.checked;
-            });
-
+        // Senkronisasi Kuantiti Dari Form Pesanan Ke Showcase
+        function syncWithShowcase(shadeName, qty) {
+            const showcaseSelect = document.querySelector(`.shade-sc-qty[data-shade="${shadeName}"]`);
+            if (showcaseSelect) {
+                showcaseSelect.value = qty;
+            }
             calculateTotal();
         }
 
-        // Kira Jumlah Keseluruhan Harga (RM39.90 * Unit)
+        // Kira Jumlah Keseluruhan
         function calculateTotal() {
-            const formCBs = document.querySelectorAll('.form-shade-cb');
-            let selectedCount = 0;
+            const formSelects = document.querySelectorAll('.form-sc-qty');
+            let totalQty = 0;
 
-            formCBs.forEach(cb => {
-                if (cb.checked) {
-                    selectedCount++;
-                }
+            formSelects.forEach(select => {
+                totalQty += parseInt(select.value, 10) || 0;
             });
 
-            const totalPrice = selectedCount * PRICE_PER_UNIT;
+            const totalPrice = totalQty * PRICE_PER_UNIT;
 
-            document.getElementById('total-qty').innerText = selectedCount;
+            document.getElementById('total-qty').innerText = totalQty;
             document.getElementById('total-price').innerText = "RM " + totalPrice.toFixed(2);
         }
 
@@ -764,25 +896,29 @@
             const userPhone = document.getElementById('phone').value;
             const address = document.getElementById('message').value;
 
-            // Kumpul Semua Shade Yang Dipilih
-            const selectedShades = [];
-            const formCBs = document.querySelectorAll('.form-shade-cb');
+            // Kumpul Semua Kuantiti Produk Yang Dipilih
+            const formSelects = document.querySelectorAll('.form-sc-qty');
+            const selectedItems = [];
+            let totalQty = 0;
 
-            formCBs.forEach(cb => {
-                if (cb.checked) {
-                    selectedShades.push(cb.value);
+            formSelects.forEach(select => {
+                const qty = parseInt(select.value, 10) || 0;
+                if (qty > 0) {
+                    const shadeName = select.getAttribute('data-shade');
+                    selectedItems.push(`${qty}x ${shadeName}`);
+                    totalQty += qty;
                 }
             });
 
-            if (selectedShades.length === 0) {
-                alert("Sila pilih sekurang-kurangnya satu tona warna produk!");
+            if (totalQty === 0) {
+                alert("Sila pilih sekurang-kurangnya 1 unit produk untuk membuat pesanan!");
                 return;
             }
 
-            const totalAmount = (selectedShades.length * PRICE_PER_UNIT).toFixed(2);
-            const shadesListText = selectedShades.join(", ");
+            const totalAmount = (totalQty * PRICE_PER_UNIT).toFixed(2);
+            const itemsListText = selectedItems.join(", ");
 
-            const textMessage = `Salam / Hi NAFA BEAUTY,%0A%0ASaya ingin membuat pesanan Click Pen Foundation (RM39.90/unit):%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*No. Telefon:* ${encodeURIComponent(userPhone)}%0A*Pilihan Shade (${selectedShades.length} unit):* ${encodeURIComponent(shadesListText)}%0A*Jumlah Bayaran:* RM ${totalAmount}%0A*Alamat Penghantaran:* ${encodeURIComponent(address)}%0A%0ATerima kasih!`;
+            const textMessage = `Salam / Hi NAFA BEAUTY,%0A%0ASaya ingin membuat pesanan Click Pen Foundation (RM39.90/unit):%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*No. Telefon:* ${encodeURIComponent(userPhone)}%0A*Pesanan:* ${encodeURIComponent(itemsListText)}%0A*Jumlah Unit:* ${totalQty} unit%0A*Jumlah Bayaran:* RM ${totalAmount}%0A*Alamat Penghantaran:* ${encodeURIComponent(address)}%0A%0ATerima kasih!`;
 
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${textMessage}`;
             window.open(whatsappURL, '_blank');
