@@ -98,16 +98,16 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 20px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--dior-black);
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             transition: color 0.3s ease;
             position: relative;
         }
@@ -176,6 +176,22 @@
             display: block;
         }
 
+        /* TESTIMONIAL GRID STYLES */
+        .testimonial-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .testimonial-img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            display: block;
+        }
+
         /* PRODUCT SHOWCASE */
         .product-showcase {
             display: grid;
@@ -205,12 +221,19 @@
 
         .product-details h3 {
             font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .price-tag {
+            font-size: 1.3rem;
+            color: var(--dior-gold);
+            font-weight: 700;
             margin-bottom: 10px;
         }
 
         .active-shade-title {
-            font-size: 1.1rem;
-            color: var(--dior-gold);
+            font-size: 1rem;
+            color: var(--dior-black);
             font-weight: 600;
             margin-bottom: 15px;
         }
@@ -218,11 +241,11 @@
         .shade-selector-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
             margin: 20px 0;
         }
 
-        .shade-option-btn {
+        .shade-option-label {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -232,18 +255,25 @@
             background: var(--white);
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: inherit;
             font-size: 0.85rem;
-            text-align: left;
         }
 
-        .shade-option-btn:hover, .shade-option-btn.active {
+        .shade-option-label:hover {
             border-color: var(--dior-black);
             background: var(--dior-nude);
         }
 
-        .shade-option-btn .btn-text {
-            font-weight: 500;
+        .shade-checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .shade-checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--dior-black);
+            cursor: pointer;
         }
 
         .btn-buy-shade {
@@ -309,7 +339,7 @@
             font-weight: 600;
         }
 
-        .form-group input, .form-group textarea, .form-group select {
+        .form-group input[type="text"], .form-group input[type="tel"], .form-group textarea {
             width: 100%;
             padding: 12px 0;
             border: none;
@@ -321,8 +351,44 @@
             transition: border-color 0.3s ease;
         }
 
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+        .form-group input:focus, .form-group textarea:focus {
             border-bottom-color: var(--dior-black);
+        }
+
+        .form-checkbox-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .form-checkbox-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .form-checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--dior-black);
+        }
+
+        .total-price-box {
+            background: var(--dior-nude);
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: right;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dior-black);
+            border: 1px solid var(--border-light);
         }
 
         .dior-btn {
@@ -390,9 +456,11 @@
             
             <ul class="nav-links">
                 <li><a href="#utama">Utama</a></li>
+                <li><a href="#tentang-produk">Tentang Produk</a></li>
                 <li><a href="#kelebihan">Kelebihan</a></li>
                 <li><a href="#cara-penggunaan">Cara Penggunaan</a></li>
-                <li><a href="#pilihan-tona">Pilihan Tona</a></li>
+                <li><a href="#tona-warna">Tona Warna</a></li>
+                <li><a href="#testimoni">Testimoni</a></li>
                 <li><a href="#pesan-beli">Pesan/Beli</a></li>
             </ul>
         </div>
@@ -408,7 +476,16 @@
 
     <main>
 
-        <!-- 2. KELEBIHAN SECTION -->
+        <!-- 2. TENTANG PRODUK SECTION -->
+        <section id="tentang-produk" class="container">
+            <div class="section-header">
+                <h2>Tentang Produk</h2>
+                <p>Mengenai NAFA BEAUTY Click Pen Foundation</p>
+            </div>
+            <img src="product-about.jpeg" alt="Tentang NAFA BEAUTY Click Pen Foundation" class="infographic-banner">
+        </section>
+
+        <!-- 3. KELEBIHAN SECTION -->
         <section id="kelebihan" style="background: var(--dior-grey);">
             <div class="container">
                 <div class="section-header">
@@ -419,7 +496,7 @@
             </div>
         </section>
 
-        <!-- 3. CARA PENGGUNAAN SECTION -->
+        <!-- 4. CARA PENGGUNAAN SECTION -->
         <section id="cara-penggunaan" class="container">
             <div class="section-header">
                 <h2>Cara Penggunaan</h2>
@@ -428,11 +505,11 @@
             <img src="steps.jpeg" alt="Langkah Penggunaan NAFA BEAUTY Click Pen Foundation" class="infographic-banner">
         </section>
 
-        <!-- 4. TONA WARNA SECTION -->
-        <section id="pilihan-tona" class="container">
+        <!-- 5. TONA WARNA SECTION -->
+        <section id="tona-warna" class="container">
             <div class="section-header">
                 <h2>Pilihan Tona Warna</h2>
-                <p>Pilih Tona Yang Sesuai Dengan Kulit Anda</p>
+                <p>Pilih Mana-Mana Tona Yang Anda Sukai</p>
             </div>
 
             <img src="shades-header.jpeg" alt="Carta Tona Warna NAFA BEAUTY" class="infographic-banner">
@@ -445,53 +522,81 @@
 
                 <div class="product-details">
                     <h3>Click Pen Foundation</h3>
-                    <div class="active-shade-title" id="active-shade-name">Koleksi Tona NAFA BEAUTY</div>
+                    <div class="price-tag">RM39.90 <small style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">(Setiap Satu)</small></div>
+                    <div class="active-shade-title" id="active-shade-name">Pilih Tona (Boleh Pilih Lebih Dari Satu):</div>
 
-                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">
-                        Klik mana-mana tona di bawah untuk melihat gambar produk.
-                    </p>
-
-                    <!-- NYATAKAN NAMA FAIL DENGAN EXACT & DIRECT DARI BUTTON -->
+                    <!-- SENARAI PILIHAN BANYAK PRODUK -->
                     <div class="shade-selector-list">
-                        <button class="shade-option-btn" onclick="changeShade(event, 'shade-vanilla-silk.jpeg', 'Vanilla Silk', 'Vanilla Silk (Light Neutral)')">
-                            <span class="btn-text">1. Vanilla Silk</span>
+                        
+                        <label class="shade-option-label" onclick="previewShade('shade-vanilla-silk.jpeg', 'Vanilla Silk (Light Neutral)')">
+                            <div class="shade-checkbox-group">
+                                <input type="checkbox" value="Vanilla Silk" class="shade-showcase-cb" onchange="syncWithForm()">
+                                <span>1. Vanilla Silk</span>
+                            </div>
                             <small>Light Neutral</small>
-                        </button>
+                        </label>
 
-                        <button class="shade-option-btn" onclick="changeShade(event, 'shade-champagne-glow.jpeg', 'Champagne Glow', 'Champagne Glow (Light Medium Warm)')">
-                            <span class="btn-text">2. Champagne Glow</span>
+                        <label class="shade-option-label" onclick="previewShade('shade-champagne-glow.jpeg', 'Champagne Glow (Light Medium Warm)')">
+                            <div class="shade-checkbox-group">
+                                <input type="checkbox" value="Champagne Glow" class="shade-showcase-cb" onchange="syncWithForm()">
+                                <span>2. Champagne Glow</span>
+                            </div>
                             <small>Light Medium Warm</small>
-                        </button>
+                        </label>
 
-                        <button class="shade-option-btn" onclick="changeShade(event, 'shade-golden-sand.jpeg', 'Golden Sand', 'Golden Sand (Medium Golden)')">
-                            <span class="btn-text">3. Golden Sand</span>
+                        <label class="shade-option-label" onclick="previewShade('shade-golden-sand.jpeg', 'Golden Sand (Medium Golden)')">
+                            <div class="shade-checkbox-group">
+                                <input type="checkbox" value="Golden Sand" class="shade-showcase-cb" onchange="syncWithForm()">
+                                <span>3. Golden Sand</span>
+                            </div>
                             <small>Medium Golden</small>
-                        </button>
+                        </label>
 
-                        <button class="shade-option-btn" onclick="changeShade(event, 'shade-cinnamon-latte.jpeg', 'Cinnamon Latte', 'Cinnamon Latte (Tan Warm)')">
-                            <span class="btn-text">4. Cinnamon Latte</span>
+                        <label class="shade-option-label" onclick="previewShade('shade-cinnamon-latte.jpeg', 'Cinnamon Latte (Tan Warm)')">
+                            <div class="shade-checkbox-group">
+                                <input type="checkbox" value="Cinnamon Latte" class="shade-showcase-cb" onchange="syncWithForm()">
+                                <span>4. Cinnamon Latte</span>
+                            </div>
                             <small>Tan Warm</small>
-                        </button>
+                        </label>
 
-                        <button class="shade-option-btn" onclick="changeShade(event, 'toffe-bronze-shade.jpeg', 'Toffee Bronze', 'Toffee Bronze RM 39.90 (Deep Neutral)')">
-                            <span class="btn-text">5. Toffee Bronze</span>
+                        <label class="shade-option-label" onclick="previewShade('toffe-bronze-shade.jpeg', 'Toffee Bronze (Deep Neutral)')">
+                            <div class="shade-checkbox-group">
+                                <input type="checkbox" value="Toffee Bronze" class="shade-showcase-cb" onchange="syncWithForm()">
+                                <span>5. Toffee Bronze</span>
+                            </div>
                             <small>Deep Neutral</small>
-                        </button>
+                        </label>
 
                     </div>
 
-                    <button class="btn-buy-shade" onclick="selectAndScrollToForm()">Beli Tone Ini Sekarang</button>
+                    <button class="btn-buy-shade" onclick="scrollToForm()">Teruskan Ke Pesanan</button>
                     <button class="btn-reset-view" onclick="resetToMainScreenshot()">Lihat Gambar Utama Produk</button>
                 </div>
             </div>
         </section>
 
-        <!-- 5. PESAN / BELI SECTION -->
+        <!-- 6. TESTIMONI PELANGGAN SECTION -->
+        <section id="testimoni" style="background: var(--dior-nude);">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Testimoni Pelanggan</h2>
+                    <p>Apa Kata Mereka Yang Dah Cuba?</p>
+                </div>
+
+                <div class="testimonial-grid">
+                    <img src="IMG-20260722-WA0042.jpg" alt="Testimoni NAFA BEAUTY Click Pen Foundation Banner" class="testimonial-img">
+                    <img src="IMG-20260722-WA0043.jpg" alt="Ulasan Pelanggan NAFA BEAUTY Click Pen Foundation" class="testimonial-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. PESAN / BELI SECTION -->
         <section id="pesan-beli" style="background: var(--dior-grey);">
             <div class="container">
                 <div class="section-header">
                     <h2>Beli / Hubungi Kami</h2>
-                    <p>Isi Maklumat Pesanan Ke WhatsApp</p>
+                    <p>PILIH TONA WARNA & ISI MAKLUMAT PESANAN</p>
                 </div>
 
                 <img src="purchase-header.jpeg" alt="Cara Pembelian NAFA BEAUTY" class="infographic-banner" style="max-width: 650px; margin: 0 auto 30px auto;">
@@ -502,25 +607,49 @@
                             <label for="name">Nama Penuh</label>
                             <input type="text" id="name" required placeholder="NAMA ANDA">
                         </div>
+
                         <div class="form-group">
                             <label for="phone">Nombor Telefon</label>
                             <input type="tel" id="phone" required placeholder="012 345 6789">
                         </div>
+
                         <div class="form-group">
-                            <label for="shade">Pilihan Shade</label>
-                            <select id="shade" required>
-                                <option value="">SILA PILIH TONA WARNA</option>
-                                <option value="Vanilla Silk">Vanilla Silk (Light Neutral)</option>
-                                <option value="Champagne Glow">Champagne Glow (Light Medium Warm)</option>
-                                <option value="Golden Sand">Golden Sand (Medium Golden)</option>
-                                <option value="Cinnamon Latte">Cinnamon Latte (Tan Warm)</option>
-                                <option value="Toffee Bronze">Toffee Bronze (Deep Neutral)</option>
-                            </select>
+                            <label>Pilihan Tona Warna (RM39.90 / unit)</label>
+                            <div class="form-checkbox-list">
+                                <label class="form-checkbox-item">
+                                    <span>Vanilla Silk (Light Neutral)</span>
+                                    <input type="checkbox" value="Vanilla Silk" class="form-shade-cb" onchange="syncWithShowcase(); calculateTotal();">
+                                </label>
+                                <label class="form-checkbox-item">
+                                    <span>Champagne Glow (Light Medium Warm)</span>
+                                    <input type="checkbox" value="Champagne Glow" class="form-shade-cb" onchange="syncWithShowcase(); calculateTotal();">
+                                </label>
+                                <label class="form-checkbox-item">
+                                    <span>Golden Sand (Medium Golden)</span>
+                                    <input type="checkbox" value="Golden Sand" class="form-shade-cb" onchange="syncWithShowcase(); calculateTotal();">
+                                </label>
+                                <label class="form-checkbox-item">
+                                    <span>Cinnamon Latte (Tan Warm)</span>
+                                    <input type="checkbox" value="Cinnamon Latte" class="form-shade-cb" onchange="syncWithShowcase(); calculateTotal();">
+                                </label>
+                                <label class="form-checkbox-item">
+                                    <span>Toffee Bronze (Deep Neutral)</span>
+                                    <input type="checkbox" value="Toffee Bronze" class="form-shade-cb" onchange="syncWithShowcase(); calculateTotal();">
+                                </label>
+                            </div>
                         </div>
-                        <div class="form-group">
+
+                        <!-- KOTAK JUMLAH HARGA -->
+                        <div class="total-price-box">
+                            Jumlah Unit: <span id="total-qty">0</span><br>
+                            Jumlah Bayaran: <span id="total-price" style="color: var(--dior-gold);">RM 0.00</span>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 20px;">
                             <label for="message">Alamat Penghantaran / Mesej</label>
                             <textarea id="message" rows="3" required placeholder="MASUKKAN ALAMAT LENGKAP PENGHANTARAN"></textarea>
                         </div>
+
                         <button type="submit" class="dior-btn">Hantar Pesanan Ke WhatsApp</button>
                     </form>
                 </div>
@@ -538,50 +667,35 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT DIRECT & RINGKAS -->
+    <!-- JAVASCRIPT MULTI-SELECT & KIRAN HARGA AUTOMATIK -->
     <script>
-        let selectedShadeValue = "";
+        const PRICE_PER_UNIT = 39.90;
         const mainProductPath = "main-product.jpeg";
 
-        // Fungsi Tukar Gambar Ringkas
-        function changeShade(event, fullImageFilename, shadeVal, shadeTitle) {
+        // Fungsi Melihat Gambar Tona
+        function previewShade(fullImageFilename, shadeTitle) {
             const mainImg = document.getElementById('main-shade-image');
             const mainTitle = document.getElementById('active-shade-name');
-            
-            // Efek Transisi Fading
+
             mainImg.style.opacity = '0.2';
 
-            // Cipta Objek Gambar Ujian
             const testImg = new Image();
             testImg.src = fullImageFilename;
 
             testImg.onload = function() {
-                // Berjaya Jumpa Gambar!
                 mainImg.src = fullImageFilename;
                 mainImg.style.opacity = '1';
             };
 
             testImg.onerror = function() {
-                // Gambar Tidak Dijumpai Dalam Folder!
-                alert("AMARAN: Fail gambar '" + fullImageFilename + "' tidak dijumpai di dalam folder anda!\n\nSila semak nama fail gambar tersebut di komputer anda.");
-                
-                // Kekalkan gambar utama
                 mainImg.src = mainProductPath;
                 mainImg.style.opacity = '1';
             };
 
-            mainTitle.innerText = shadeTitle;
-            selectedShadeValue = shadeVal;
-
-            // Highlight Butang Aktif
-            const buttons = document.querySelectorAll('.shade-option-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if (event && event.currentTarget) {
-                event.currentTarget.classList.add('active');
-            }
+            mainTitle.innerText = "Paparan: " + shadeTitle;
         }
 
-        // Fungsi Reset Gambar Utama
+        // Reset Gambar Utama
         function resetToMainScreenshot() {
             const mainImg = document.getElementById('main-shade-image');
             const mainTitle = document.getElementById('active-shade-name');
@@ -592,33 +706,83 @@
                 mainImg.style.opacity = '1';
             }, 150);
 
-            mainTitle.innerText = "Koleksi Tona NAFA BEAUTY";
-            selectedShadeValue = "";
-
-            const buttons = document.querySelectorAll('.shade-option-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
+            mainTitle.innerText = "Pilih Tona (Boleh Pilih Lebih Dari Satu):";
         }
 
-        // Fungsi Skrol Ke Form
-        function selectAndScrollToForm() {
-            const selectDropdown = document.getElementById('shade');
-            if (selectedShadeValue !== "") {
-                selectDropdown.value = selectedShadeValue;
-            }
+        // Senkronisasi Checkbox Showcase Ke Form Pesanan
+        function syncWithForm() {
+            const showcaseCBs = document.querySelectorAll('.shade-showcase-cb');
+            const formCBs = document.querySelectorAll('.form-shade-cb');
+
+            showcaseCBs.forEach((scb, index) => {
+                formCBs[index].checked = scb.checked;
+            });
+
+            calculateTotal();
+        }
+
+        // Senkronisasi Checkbox Form Pesanan Ke Showcase
+        function syncWithShowcase() {
+            const showcaseCBs = document.querySelectorAll('.shade-showcase-cb');
+            const formCBs = document.querySelectorAll('.form-shade-cb');
+
+            formCBs.forEach((fcb, index) => {
+                showcaseCBs[index].checked = fcb.checked;
+            });
+
+            calculateTotal();
+        }
+
+        // Kira Jumlah Keseluruhan Harga (RM39.90 * Unit)
+        function calculateTotal() {
+            const formCBs = document.querySelectorAll('.form-shade-cb');
+            let selectedCount = 0;
+
+            formCBs.forEach(cb => {
+                if (cb.checked) {
+                    selectedCount++;
+                }
+            });
+
+            const totalPrice = selectedCount * PRICE_PER_UNIT;
+
+            document.getElementById('total-qty').innerText = selectedCount;
+            document.getElementById('total-price').innerText = "RM " + totalPrice.toFixed(2);
+        }
+
+        // Skrol Ke Form Pesanan
+        function scrollToForm() {
             document.getElementById('pesan-beli').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Fungsi WhatsApp
+        // Hantar Pesanan Ke WhatsApp
         function sendToWhatsApp(event) {
             event.preventDefault();
 
             const phoneNumber = "60199644619"; 
             const name = document.getElementById('name').value;
             const userPhone = document.getElementById('phone').value;
-            const shade = document.getElementById('shade').value;
             const address = document.getElementById('message').value;
 
-            const textMessage = `Salam / Hi NAFA BEAUTY,%0A%0ASaya ingin membuat pesanan Click Pen Foundation:%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*No. Telefon:* ${encodeURIComponent(userPhone)}*Pilihan Shade:* ${encodeURIComponent(shade)}%0A*Alamat Penghantaran:* ${encodeURIComponent(address)}%0A%0ATerima kasih!`;
+            // Kumpul Semua Shade Yang Dipilih
+            const selectedShades = [];
+            const formCBs = document.querySelectorAll('.form-shade-cb');
+
+            formCBs.forEach(cb => {
+                if (cb.checked) {
+                    selectedShades.push(cb.value);
+                }
+            });
+
+            if (selectedShades.length === 0) {
+                alert("Sila pilih sekurang-kurangnya satu tona warna produk!");
+                return;
+            }
+
+            const totalAmount = (selectedShades.length * PRICE_PER_UNIT).toFixed(2);
+            const shadesListText = selectedShades.join(", ");
+
+            const textMessage = `Salam / Hi NAFA BEAUTY,%0A%0ASaya ingin membuat pesanan Click Pen Foundation (RM39.90/unit):%0A%0A*Nama:* ${encodeURIComponent(name)}%0A*No. Telefon:* ${encodeURIComponent(userPhone)}%0A*Pilihan Shade (${selectedShades.length} unit):* ${encodeURIComponent(shadesListText)}%0A*Jumlah Bayaran:* RM ${totalAmount}%0A*Alamat Penghantaran:* ${encodeURIComponent(address)}%0A%0ATerima kasih!`;
 
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${textMessage}`;
             window.open(whatsappURL, '_blank');
